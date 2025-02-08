@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------
-# Base Image: Ubuntu with CUDA/cuDNN for GPU acceleration (CUDA 12.8.0-cudnn-devel-ubuntu22.04)
+# Base Image: ROCm for GPU acceleration (dev-ubuntu-22.04:6.3.2-complete)
 # ---------------------------------------------------------------------------
-    FROM nvidia/cuda:12.4.0-devel-ubuntu22.04
+    FROM rocm/dev-ubuntu-22.04:6.3.2-complete
 
     # ---------------------------------------------------------------------------
     # Install basic dependencies
@@ -10,13 +10,11 @@
         build-essential \
         bash-completion \
         cmake \
-        cudnn-cuda-12 \
         git \
         wget \
         python3 \
         python3-pip \
         python3-venv \
-        nvidia-container-toolkit \
         && rm -rf /var/lib/apt/lists/*
     
     # ---------------------------------------------------------------------------

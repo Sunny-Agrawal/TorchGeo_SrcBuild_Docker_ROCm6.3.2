@@ -40,6 +40,7 @@ cd /usr/local/ML_Repo/pytorch
 if [ ! -f "/opt/venv/lib/python3.10/site-packages/torch/__init__.py" ]; then
     echo "PyTorch not found. Building from source..."
     pip install --no-cache-dir -r requirements.txt
+    python tools/amd_build/build_amd.py
     python setup.py develop
     
     # Build torchvision and torchaudio
