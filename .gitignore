@@ -1,0 +1,23 @@
+# Ignore Perforce-related files
+.p4*
+
+# Ignore macOS-specific system files
+.DS_Store
+.AppleDouble
+
+# Ignore virtual environments
+.env
+.venv/
+venv/
+
+# Ignore Python bytecode and Jupyter checkpoints
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
+# Ignore build artifacts
+build/
+
+# Ignore Docker-related artifacts
+*.log
+*.pid

@@ -1,0 +1,1 @@
+Directory for custom models such as fine tunes and models trained from scratch. When training or fine-tuning, place model checkpoints here.

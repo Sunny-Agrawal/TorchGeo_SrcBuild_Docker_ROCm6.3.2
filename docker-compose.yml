@@ -1,0 +1,18 @@
+services:
+  ml:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - .:/usr/local/ML_Repo       # Mount the entire repository
+      - ./venv:/opt/venv           # Persist the Python virtual environment
+      - ./requirements.txt:/tmp/requirements.txt # Mount requirements file for runtime
+    working_dir: /usr/local/ML_Repo
+    tty: true

@@ -1,0 +1,1 @@
+Directory for storing base AI models. Recommend including any subdirectories in the gitignore.

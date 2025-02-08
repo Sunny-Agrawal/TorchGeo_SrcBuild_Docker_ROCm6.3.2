@@ -1,0 +1,4 @@
+services:
+  ml:
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
+    command: ["tail", "-f", "/dev/null"]

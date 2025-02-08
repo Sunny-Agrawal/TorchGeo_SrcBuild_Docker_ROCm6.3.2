@@ -1,0 +1,26 @@
+# Basic dependencies
+numpy
+scipy
+scikit-learn
+jupyter
+
+# PyTorch (ensure that it is compiled for the same CUDA version as PyTorch Geometric, CUDA 12.4 in this case)
+# -f https://download.pytorch.org/whl/cu124
+# torch==2.5.0
+# torchvision
+# torchaudio
+
+# PyTorch Geometric
+# -f https://data.pyg.org/whl/torch-2.5.0+cu124.html
+# torch_geometric
+# pyg_lib
+# torch_scatter
+# torch_sparse
+# torch_cluster
+# torch_spline_conv
+
+# Other useful libraries
+matplotlib
+pandas
+tqdm
+requests

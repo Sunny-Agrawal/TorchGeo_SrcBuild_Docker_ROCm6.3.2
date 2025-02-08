@@ -1,0 +1,1 @@
+Directory for publicly available training data. Recommend including any subdirectories in the gitignore.
