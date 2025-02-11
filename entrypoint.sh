@@ -40,6 +40,8 @@ cd /usr/local/ML_Repo/pytorch
 if [ ! -f "/opt/venv/lib/python3.10/site-packages/torch/__init__.py" ]; then
     echo "PyTorch not found. Building from source..."
     pip install --no-cache-dir -r requirements.txt
+    export PYTORCH_ROCM_ARCH="gfx1100" # Change this to match your GPU
+    export CMAKE_PREFIX_PATH="$CMAKE_PREFIX_PATH:/opt/rocm-6.3.2" # Change this to match your ROCm installation. This is the default path for the rocm-6.3.2 installation
     python tools/amd_build/build_amd.py
     python setup.py develop
     
