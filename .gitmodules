@@ -1,3 +1,6 @@
 [submodule "pytorch"]
 	path = pytorch
 	url = https://github.com/pytorch/pytorch.git
+[submodule "pyg-rocm-build"]
+	path = pyg-rocm-build
+	url = https://github.com/Sunny-Agrawal/pyg-rocm-build.git
