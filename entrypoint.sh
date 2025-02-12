@@ -63,6 +63,12 @@ else
     echo "PyTorch is already installed. Skipping build."
 fi
 
+echo "Building PyG from source..."
+cd /usr/local/ML_Repo/pyg-rocm-build
+bash build_and_install_pyg.sh
+echo "PyG build complete."
+
+
 echo "entrypoint script finished. Container ready for use!"
 
 # Pass control to CMD or keep container running
