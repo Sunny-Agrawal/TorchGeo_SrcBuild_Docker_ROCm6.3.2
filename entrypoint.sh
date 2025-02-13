@@ -45,29 +45,40 @@ if [ ! -f "/opt/venv/lib/python3.10/site-packages/torch/__init__.py" ]; then
     python tools/amd_build/build_amd.py
     python setup.py develop
     
-    # Build torchvision and torchaudio
-    # echo "Building torchvision from source..."
-    # cd /usr/local/ML_Repo
-    # git clone --recursive https://github.com/pytorch/vision.git torchvision
-    # cd torchvision
-    # git checkout v0.15.0  # Match with PyTorch 2.5
-    # python setup.py install
-    
-    # echo "Building torchaudio from source..."
-    # cd /usr/local/ML_Repo
-    # git clone --recursive https://github.com/pytorch/audio.git torchaudio
-    # cd torchaudio
-    # git checkout v2.5.0  # Match with PyTorch 2.5
-    # python setup.py install
+    if [ $? -eq 0 ]; then
+        echo "PyTorch build successful!"
+    else
+        echo "PyTorch build failed!"
+        exit 1
+    fi
 else
     echo "PyTorch is already installed. Skipping build."
 fi
+
+# Short delay to ensure PyTorch is fully recognized
+sleep 5  
+python -c "import torch; print('PyTorch version:', torch.__version__)"
+
+# Uncomment the following lines if you need torchvision and torchaudio built from source
+
+# echo "Building torchvision from source..."
+# cd /usr/local/ML_Repo
+# git clone --recursive https://github.com/pytorch/vision.git torchvision
+# cd torchvision
+# git checkout v0.15.0  # Match with PyTorch 2.5
+# python setup.py install
+
+# echo "Building torchaudio from source..."
+# cd /usr/local/ML_Repo
+# git clone --recursive https://github.com/pytorch/audio.git torchaudio
+# cd torchaudio
+# git checkout v2.5.0  # Match with PyTorch 2.5
+# python setup.py install
 
 echo "Building PyG from source..."
 cd /usr/local/ML_Repo/pyg-rocm-build
 bash build_and_install_pyg.sh
 echo "PyG build complete."
-
 
 echo "entrypoint script finished. Container ready for use!"
 
