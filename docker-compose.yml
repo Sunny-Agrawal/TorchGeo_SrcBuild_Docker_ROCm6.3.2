@@ -11,12 +11,8 @@ services:
               count: all
               capabilities: [gpu]
     devices:
-      - "/dev/kfd:/dev/kfd"
-      - "/dev/dri:/dev/dri"
-    group_add:
-      - "video"
-      - "render"
-    privileged: true
+      - /dev/kfd
+      - /dev/dri
     volumes:
       - .:/usr/local/ML_Repo       # Mount the entire repository
       - ./venv:/opt/venv           # Persist the Python virtual environment

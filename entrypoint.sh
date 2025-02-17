@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Starting entrypoint script..."
+
 # Ensure necessary directories exist
 mkdir -p /opt/venv
 mkdir -p /usr/local/ML_Repo/public_datasets
@@ -7,13 +9,6 @@ mkdir -p /usr/local/ML_Repo/base_models
 mkdir -p /usr/local/ML_Repo/custom_models
 mkdir -p /usr/local/ML_Repo/custom_datasets
 
-# Ensure root is in video and render groups
-usermod -aG video,render root
-
-# Reload group permissions without needing to restart the container
-exec sg video newgrp `id -gn`
-
-echo "User 'root' is now part of video and render groups."
 
 # Check if the virtual environment exists
 if [ ! -d "/opt/venv/bin" ]; then
